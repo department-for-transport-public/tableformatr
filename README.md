@@ -8,7 +8,7 @@ Install the development version of the package from GitHub:
 
 ```
 install.packages("devtools")
-devtools::install_github("department-for-transport/tableformatr", auth = "YOUR PAT TOKEN HERE")
+devtools::install_github("department-for-transport-public/tableformatr")
 ```
 
 ## Using the package
