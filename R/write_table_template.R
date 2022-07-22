@@ -47,7 +47,13 @@ writeDataTableTemplate <- function(wb,
                            sheet = sheet,
                            x = x,
                            tableStyle = "none",
-                           startRow = startRow
+                           startRow = startRow,
+                           tableName = tableName,
+                           startCol = startCol,
+                           colNames = colNames,
+                           rowNames = rowNames,
+                           keepNA = keepNA,
+                           na.string = na.string
   )
 
 }
