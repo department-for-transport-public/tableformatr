@@ -21,8 +21,8 @@ writeDataTableTemplate <- function(wb,
                                    startCol = 1,
                                    colNames = TRUE,
                                    rowNames = FALSE,
-                                   keepNA = openxlsx_getOp("keepNA", FALSE),
-                                   na.string = openxlsx_getOp("na.string")
+                                   keepNA = TRUE,
+                                   na.string = ":"
                                    ){
 
   ##Read in first row of data to become the headers
