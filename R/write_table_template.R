@@ -53,6 +53,7 @@ writeDataTableTemplate <- function(wb,
                            colNames = colNames,
                            rowNames = rowNames,
                            keepNA = keepNA,
+                           withFilter = FALSE,
                            na.string = na.string
   )
 
