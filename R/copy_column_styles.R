@@ -14,13 +14,13 @@ copyColumnStyles <- function(wb, sheet, colFrom, colTo, startRow, endRow) {
   #wb$styleObjects is a list containing lists containing style, rows and columns and sheet that style applies to
   all_styles <- wb$styleObjects
   
-  #loop through each row
+  #loop through each row in spreadsheet
   for(row in startRow:endRow) {
-    #loop through each style
+    #loop through each style in the workbook
     for(i in 1:length(all_styles)) {
-      #if that style applies to the row looking at and the column copying from
+      #if that style applies to the sheet and row looking at and the column copying from
       if(all_styles[[i]]$sheet==sheet & row %in% all_styles[[i]]$rows & colFrom %in% all_styles[[i]]$cols) {
-        #Then apply the style to that row and column copying to
+        #Then apply the style to that sheet, row and column copying to
         openxlsx::addStyle(wb,sheet, all_styles[[i]]$style, row,colTo,stack = TRUE)
       }
     }
