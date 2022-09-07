@@ -4,7 +4,7 @@ Title: Write data as a table format to Excel
 Version: 0.1.2
 Authors@R: 
     c(person("Francesca", "Bryden", , "francesca.bryden@dft.gov.uk", role = c("aut", "cre")),
-    person("Sean", "Longman", ,"sean.longman@dft.gov.uk", role = "aut")
+    person("Sean", "Longman", ,"sean.longman@dft.gov.uk", role = "aut"))
 Description: Designed as an add-on to openxlsx, this package allows data to be written to an Excel template in a data table format.
     This is particularly useful when trying to write data to a template which includes titles and header rows for accessible publishing.
 Imports: openxlsx

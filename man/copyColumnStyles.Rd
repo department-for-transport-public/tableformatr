@@ -2,23 +2,24 @@
 % Please edit documentation in R/copy_column_styles.R
 \name{copyColumnStyles}
 \alias{copyColumnStyles}
-\title{Copy the formatting of a column to another column for a defined consecutive selection of rows}
+\title{Copy the formatting of a column to another column for a defined selection of rows}
 \usage{
-copyColumnStyles(wb, sheet, colFrom, colTo, startRow, endRow)
+copyColumnStyles(wb, sheet, colFrom, colTo, rows)
 }
 \arguments{
 \item{wb}{A Workbook object containing a worksheet.}
 
-\item{sheet}{The worksheet to write to. Can be the worksheet index or name.}
+\item{sheet}{The name of the worksheet to write to.}
 
-\item{colFrom}{Integer showing the column number in the excel workbook of which the format is to be copied}
+\item{colFrom}{Integer showing the column number in the excel workbook to 
+copy the formatting from}
 
-\item{colTo}{An Integer defining the column number in the excel workbook for the format to be copied to}
+\item{colTo}{An integer (or vector of integers) defining the column number 
+in the excel workbook for the format to be copied to}
 
-\item{startRow}{An integer indicating the row in the excel workbook to start copying the format}
-
-\item{endRow}{An integer indicating the row in the excel workbook to stop copying the format}
+\item{rows}{A vector of one or more integer indicating the rows 
+in the excel workbook to copy the format from}
 }
 \description{
-Copy the formatting of a column to another column for a defined consecutive selection of rows
+Copy the formatting of a column to another column for a defined selection of rows
 }

@@ -1,2 +1,7 @@
 ^.*\.Rproj$
 ^\.Rproj\.user$
+img/
+renv
+renv.lock
+security_check.md
+
