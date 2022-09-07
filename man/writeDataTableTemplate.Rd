@@ -14,7 +14,7 @@ writeDataTableTemplate(
   colNames = TRUE,
   rowNames = FALSE,
   keepNA = TRUE,
-  na.string = ":"
+  na.string = "[z]"
 )
 }
 \arguments{
