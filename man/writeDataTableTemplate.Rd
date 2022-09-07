@@ -13,8 +13,8 @@ writeDataTableTemplate(
   startCol = 1,
   colNames = TRUE,
   rowNames = FALSE,
-  keepNA = openxlsx_getOp("keepNA", FALSE),
-  na.string = openxlsx_getOp("na.string")
+  keepNA = TRUE,
+  na.string = ":"
 )
 }
 \arguments{
