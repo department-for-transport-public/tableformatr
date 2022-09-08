@@ -42,6 +42,27 @@ writeDataTableTemplate(wb = your template wb object,
 
 The template workbook object, sheet number and dataset you want to write out can be passed to the function as arguments. You should also specify the startRow of the table; this is the existing table header row included in your template (e.g. row 4 in the example). You can also specify a tableName in the function, which makes it easier for users to identify tables using assistive technology. If you don't specify a name, it will default to Table1, Table2, etc notation.
 
+### Copying column formatting to new columns
+
+For situations where you may already have accessible tables and which you want to update with a new column of data.
+
+`copyColumnStyles()` allows you to copy formatting from an existing column into one or more new columns, for a pre-defined range of rows. This can be used to update your accessible tables in the following way:
+
+* Use `openxlsx::read.xlsx()` to read in the data currently in your table, including the headers. 
+* Use `openxlsx::removeTable()` to remove the markup of the table in the workbook, while retaining formatting. 
+* Write your updated data into the template using `openxlsx::writeDataTable()`.
+* Use `copyColumnStyles()` to copy the cell formatting to your new column in the table. This ensures that any bolding, italics, fonts, font sizes etc. will be in the new column.
+
+```
+copyColumnStyles(wb = your template wb object,
+                  sheet = sheet name you're writing to,
+                  colFrom = the Excel column number to copy the cell styles from,
+                  colTo = the Excel column number(s) to copy the cell styles to,
+                  rows = the Excel row numbers to apply the function to
+                )
+```
+
+
 ### Formatting footnote notations
 
 The package also has a function (`superscriptNotes()`) to format any accessible footnote notations into superscript. These notes should be in the structure [note X] to be recognised by the function, and it is only necessary to run this once for a whole workbook once the data is written, regardless of number of sheets.
