@@ -27,6 +27,7 @@ writeDataTableTemplate <- function(wb,
 
   ##Read in first row of data to become the headers
   names <- openxlsx::readWorkbook(wb,
+                                  sheet = sheet,
                                   rows =  startRow,
                                   colNames = FALSE)
 
