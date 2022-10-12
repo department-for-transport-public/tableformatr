@@ -28,7 +28,7 @@ writeDataTableTemplate <- function(wb,
   ##Read in first row of data to become the headers
   names <- openxlsx::readWorkbook(wb,
                                   sheet = sheet,
-                                  rows =  startRow,
+                                  rows =  startRow:(startRow+1),
                                   colNames = FALSE)
 
   ##If there aren't enough titles for rows, error out
@@ -40,7 +40,7 @@ writeDataTableTemplate <- function(wb,
   }
 
   #Rename table with titles from template
-  names(x) <- names[1,]
+  names(x) <- unlist(names[1,])
 
 
   ##Write data out
