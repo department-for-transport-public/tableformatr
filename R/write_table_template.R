@@ -22,7 +22,7 @@ writeDataTableTemplate <- function(wb,
                                    colNames = TRUE,
                                    rowNames = FALSE,
                                    keepNA = TRUE,
-                                   na.string = "[z]"
+                                   na.string = "[z]",
                                    ){
 
   ##Read in first row of data to become the headers
@@ -44,7 +44,7 @@ writeDataTableTemplate <- function(wb,
 
 
   ##Write data out
-  openxlsx::writeDataTable(wb,
+  writeReplaceDataTable(wb,
                            sheet = sheet,
                            x = x,
                            tableStyle = "none",
@@ -54,7 +54,6 @@ writeDataTableTemplate <- function(wb,
                            colNames = colNames,
                            rowNames = rowNames,
                            keepNA = keepNA,
-                           withFilter = FALSE,
                            na.string = na.string
   )
 
