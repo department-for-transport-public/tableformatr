@@ -16,6 +16,7 @@
 #' @param na.string If keepNA is TRUE, all NA values are converted to this string in Excel.
 #' If keepNA is a list of column numbers a vector of values can be provided to this argument, 
 #' NA values in the specified columns are converted to their corresponding string 
+#' @param ... Additional arguments to be passed to writeDataTable
 #' @title Write to an Excel table replacing NA values in a custom way
 
 writeReplaceDataTable <- function(wb,
