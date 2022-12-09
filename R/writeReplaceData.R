@@ -29,6 +29,9 @@ writeReplaceDataTable <- function(wb,
                            keepNA = TRUE,
                            na.string = "[z]",
                            ...){
+  ##Remove data.table formatting that breaks this
+  x <- as(x, "data.frame")
+  
   if(!is.list(keepNA)){
     ##Just write it normally if keepNA is true
     if(keepNA == TRUE){
@@ -83,7 +86,7 @@ writeReplaceDataTable <- function(wb,
     for(i in 1:length(keepNA)){
       ##Replace your NA values
       for(c in keepNA[[i]]){
-        for (r in row_values[is.na(x[,c])]){
+        for (r in row_values[is.na(x[, c])]){
           openxlsx::writeData(wb,
                               sheet,
                               na.string[[i]],
