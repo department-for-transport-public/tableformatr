@@ -57,6 +57,12 @@ writeReplaceDataTable <- function(wb,
                                 ...)
       
     }} else{
+      
+      ##Check if the list of columns and NAs is the same
+      if(length(keepNA) != length(na.string)){
+        stop("Length of keepNA list and na.string vector must be equal")
+      }
+      
     #But if keepNA is a list of columns, we do cool stuff...
     openxlsx::writeDataTable(wb, 
                         sheet, 
@@ -70,9 +76,11 @@ writeReplaceDataTable <- function(wb,
                         ...)
     
     row_values <- 1:nrow(x)
+  
     
     ##Take each bit of the list at a time
     for(i in 1:length(keepNA)){
+      ##Replace your NA values
       for(c in keepNA[[i]]){
         for (r in row_values[is.na(x[,c])]){
           openxlsx::writeData(wb,
