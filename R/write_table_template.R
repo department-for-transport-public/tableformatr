@@ -22,7 +22,7 @@ writeDataTableTemplate <- function(wb,
                                    colNames = TRUE,
                                    rowNames = FALSE,
                                    keepNA = TRUE,
-                                   na.string = "[z]",
+                                   na.string = "[z]"
                                    ){
 
   ##Read in first row of data to become the headers
