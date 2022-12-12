@@ -44,17 +44,15 @@ writeDataTableTemplate <- function(wb,
 
 
   ##Write data out
-  openxlsx::writeDataTable(wb,
+  writeReplaceDataTable(wb,
                            sheet = sheet,
                            x = x,
-                           tableStyle = "none",
                            startRow = startRow,
                            tableName = tableName,
                            startCol = startCol,
                            colNames = colNames,
                            rowNames = rowNames,
                            keepNA = keepNA,
-                           withFilter = FALSE,
                            na.string = na.string
   )
 
