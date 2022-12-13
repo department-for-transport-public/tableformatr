@@ -7,8 +7,8 @@ R package add-on for openxlsx, making it easy to write table-formatted data into
 Install the development version of the package from GitHub:
 
 ```
-install.packages("devtools")
-devtools::install_github("department-for-transport-public/tableformatr")
+install.packages("remotes")
+remotes::install_github("department-for-transport-public/tableformatr")
 ```
 
 ## Using the package
@@ -36,11 +36,22 @@ writeDataTableTemplate(wb = your template wb object,
                         sheet = sheet number or name you're writing to,
                         x = your data,
                         startRow = the Excel row number of the table header row,
-                        tableName = name of the formatted table
+                        tableName = name of the formatted table,
+                        ...
                         )
 ```
 
 The template workbook object, sheet number and dataset you want to write out can be passed to the function as arguments. You should also specify the startRow of the table; this is the existing table header row included in your template (e.g. row 4 in the example). You can also specify a tableName in the function, which makes it easier for users to identify tables using assistive technology. If you don't specify a name, it will default to Table1, Table2, etc notation.
+
+### Replacing NA values with a string of your choice
+
+Using both `writeDataTableTemplate()` or the separate `writeReplaceDataTable()` (which does not use a template), you can replace NA values in your data with one or more text strings.
+
+To do this, use the `keepNA` and `na.string` arguments.
+
+Setting `keepNA` to TRUE and `na.string` to a single string (e.g. [z]) will replace all NA values in a table with that string.
+
+Setting `keepNA` to a list of column numbers (e.g. `list(1:10, 11:14)`) and `na.string` to a vector of strings (e.g. `c("[z]", "[x]")`) will replace NA values with the first string in the first selection of columns, and the second string in the second selection of columns, etc (e.g. NA values will be [z] in columns 1 to 10 and [x] in columns 11 to 14). This is useful if you have different types of NA values in different columns.
 
 ### Copying column formatting to new columns
 
