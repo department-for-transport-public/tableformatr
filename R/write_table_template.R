@@ -11,6 +11,7 @@
 #' @param rowNames If TRUE, row names of x are written.
 #' @param keepNA If TRUE, NA values are converted to #N/A (or na.string, if not NULL) in Excel, else NA cells will be empty.
 #' @param na.string If not NULL, and if keepNA is TRUE, NA values are converted to this string in Excel.
+#' @param withFilter whether to include filters on the table or not. Defaults to FALSE
 #' @title Write to a worksheet template and format as an Excel table
 
 writeDataTableTemplate <- function(wb,
@@ -22,7 +23,8 @@ writeDataTableTemplate <- function(wb,
                                    colNames = TRUE,
                                    rowNames = FALSE,
                                    keepNA = TRUE,
-                                   na.string = "[z]"
+                                   na.string = "[z]",
+                                   withFilter = FALSE
                                    ){
 
   ##Read in first row of data to become the headers
@@ -53,7 +55,8 @@ writeDataTableTemplate <- function(wb,
                            colNames = colNames,
                            rowNames = rowNames,
                            keepNA = keepNA,
-                           na.string = na.string
+                           na.string = na.string,
+                          withFilter = withFilter
   )
 
 }

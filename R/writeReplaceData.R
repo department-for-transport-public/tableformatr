@@ -16,6 +16,7 @@
 #' @param na.string If keepNA is TRUE, all NA values are converted to this string in Excel.
 #' If keepNA is a list of column numbers a vector of values can be provided to this argument, 
 #' NA values in the specified columns are converted to their corresponding string 
+#' @param withFilter whether to include filters on the table or not. Defaults to FALSE
 #' @param ... Additional arguments to be passed to writeDataTable
 #' @title Write to an Excel table replacing NA values in a custom way
 
@@ -28,6 +29,7 @@ writeReplaceDataTable <- function(wb,
                            startRow = 1,
                            keepNA = TRUE,
                            na.string = "[z]",
+                           withFilter = FALSE,
                            ...){
   ##Remove data.table formatting that breaks this
   x <- as(x, "data.frame")
@@ -44,7 +46,7 @@ writeReplaceDataTable <- function(wb,
                               colNames = colNames,
                               keepNA = TRUE,
                               na.string = na.string,
-                              withFilter = FALSE,
+                              withFilter = withFilter,
                               tableStyle = "none",
                               ...)
     } else if(keepNA == FALSE){
