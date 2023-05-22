@@ -31,18 +31,31 @@ writeDataTableTemplate <- function(wb,
   names <- openxlsx::readWorkbook(wb,
                                   sheet = sheet,
                                   rows =  startRow:(startRow+1),
+                                  skipEmptyRows = FALSE,
+                                  skipEmptyCols = FALSE,
                                   colNames = FALSE)
+  
+  ##Start names from start column
+  names <- names[1, startCol:length(names)]
 
   ##If there aren't enough titles for rows, error out
-  if(length(names) != ncol(x)){
+  if(length(names) < ncol(x)){
     stop(paste("Incorrect number of column names provided in template.",
                ncol(x), "names are needed,",
                length(names),
                "are provided in template"))
+  } 
+  
+  ##If there are too many names, only keep the ones we need but warn
+  if(length(names) > ncol(x)){
+    
+    names <- names[1:ncol(x)]
+    
+    
   }
 
   #Rename table with titles from template
-  names(x) <- unlist(names[1,])
+  names(x) <- unlist(names)
 
 
   ##Write data out
