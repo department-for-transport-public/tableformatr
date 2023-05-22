@@ -31,6 +31,8 @@ writeDataTableTemplate <- function(wb,
   names <- openxlsx::readWorkbook(wb,
                                   sheet = sheet,
                                   rows =  startRow:(startRow+1),
+                                  skipEmptyRows = FALSE,
+                                  skipEmptyCols = FALSE,
                                   colNames = FALSE)
   
   ##Start names from start column
