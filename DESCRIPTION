@@ -1,7 +1,7 @@
 Package: tableformatr
 Type: Package
 Title: Write data as a table format to Excel
-Version: 0.1.7
+Version: 0.1.8
 Authors@R: 
     c(person("Francesca", "Bryden", , "francesca.bryden@dft.gov.uk", role = c("aut", "cre")),
     person("Sean", "Longman", ,"sean.longman@dft.gov.uk", role = "aut"))
