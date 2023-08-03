@@ -75,12 +75,9 @@ writeReplaceMultiple <- function(wb,
     ##Replace your NA values
     for(c in 1:ncol(x)){
       
-      ##Calculate row values, and if they equal NA, drop them
-      row_values <- row_values[!is.na(x[, c])]
-      
       if(length(row_values) != 0){
       
-        for (r in row_values[x[, c] == 0]){
+        for (r in na.omit(row_values[x[, c] == 0])){
           openxlsx::writeData(wb,
                               sheet,
                               zero.string,
