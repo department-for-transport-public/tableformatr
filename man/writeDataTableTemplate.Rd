@@ -14,7 +14,8 @@ writeDataTableTemplate(
   colNames = TRUE,
   rowNames = FALSE,
   keepNA = TRUE,
-  na.string = "[z]"
+  na.string = "[z]",
+  withFilter = FALSE
 )
 }
 \arguments{
@@ -37,6 +38,8 @@ writeDataTableTemplate(
 \item{keepNA}{If TRUE, NA values are converted to #N/A (or na.string, if not NULL) in Excel, else NA cells will be empty.}
 
 \item{na.string}{If not NULL, and if keepNA is TRUE, NA values are converted to this string in Excel.}
+
+\item{withFilter}{whether to include filters on the table or not. Defaults to FALSE}
 }
 \description{
 Write to a worksheet template and format as an Excel table
