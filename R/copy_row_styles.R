@@ -30,13 +30,13 @@ copyRowStyles <- function(wb,
   #loop through each style in the workbook
   for(i in 1:length(all_styles)) {
     #For rows in both the style and the specified rows, apply the style
-    apply_rows <- intersect(rows, all_styles[[i]]$rows)
+    apply_cols <- intersect(cols, all_styles[[i]]$cols)
     #Then apply the style to that sheet, copying to specified rows and columns
     openxlsx::addStyle(wb,
                        sheet = sheet,
                        style = all_styles[[i]]$style,
-                       rows = apply_rows,
-                       cols = colTo,
+                       rows = rowTo,
+                       cols = apply_cols,
                        stack = TRUE,
                        gridExpand = TRUE)
   }
