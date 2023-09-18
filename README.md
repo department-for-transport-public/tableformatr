@@ -53,6 +53,16 @@ Setting `keepNA` to TRUE and `na.string` to a single string (e.g. [z]) will repl
 
 Setting `keepNA` to a list of column numbers (e.g. `list(1:10, 11:14)`) and `na.string` to a vector of strings (e.g. `c("[z]", "[x]")`) will replace NA values with the first string in the first selection of columns, and the second string in the second selection of columns, etc (e.g. NA values will be [z] in columns 1 to 10 and [x] in columns 11 to 14). This is useful if you have different types of NA values in different columns.
 
+### Replacing NA and zero values with a string of your choice
+
+As above, you can replace both NA and zero values using the `writeReplaceMultiple()` (which does not use a template), with one text string for each value.
+
+In addition to using the `keepNA` and `na.string` arguments as described above, you need to use the `keepZero` and `zero.string` arguments.
+
+Setting `keepZero` to TRUE and `zero.string` to a single string (e.g. [z]) will replace all zero values in a table with that string.
+
+You cannot yet use this function with multiple strings, or in combination with writing out a data table.
+
 ### Copying column formatting to new columns
 
 For situations where you may already have accessible tables and which you want to update with a new column of data.
