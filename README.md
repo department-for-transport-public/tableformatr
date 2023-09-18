@@ -83,6 +83,26 @@ copyColumnStyles(wb = your template wb object,
                 )
 ```
 
+### Copying row formatting to new rows
+
+For situations where you may already have accessible tables and which you want to update with a new row of data.
+
+`copyRowStyles()` allows you to copy formatting from an existing row into one or more new rows, for a pre-defined range of columns. This can be used to update your accessible tables in the following way:
+
+* Use `openxlsx::read.xlsx()` to read in the data currently in your table, including the headers. 
+* Use `openxlsx::removeTable()` to remove the markup of the table in the workbook, while retaining formatting. 
+* Write your updated data into the template using `openxlsx::writeDataTable()`.
+* Use `copyRowStyles()` to copy the cell formatting to your new row in the table. This ensures that any bolding, italics, fonts, font sizes etc. will be in the new row.
+
+```
+copyRowStyles(wb = your template wb object,
+                  sheet = sheet name you're writing to,
+                  rowFrom = the Excel row number to copy the cell styles from,
+                  rowTo = the Excel row number(s) to copy the cell styles to,
+                  cols = the Excel column numbers to apply the function to
+                )
+```
+
 
 ### Formatting footnote notations
 

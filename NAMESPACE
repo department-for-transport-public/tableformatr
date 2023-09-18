@@ -2,6 +2,7 @@
 
 export(addTitle)
 export(copyColumnStyles)
+export(copyRowStyles)
 export(superscriptNotes)
 export(writeDataTableTemplate)
 export(writeReplaceDataTable)
